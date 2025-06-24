@@ -123,6 +123,57 @@
             color: var(--primary-color);
         }
 
+        /* Hamburger Menu Icon */
+        .hamburger-menu {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+        
+        /* Mobile Navigation Overlay */
+        .mobile-nav-overlay {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1001;
+            top: 0;
+            left: 0;
+            background-color: rgba(44, 62, 80, 0.97);
+            overflow-x: hidden;
+            transition: 0.5s;
+        }
+
+        .mobile-nav-content {
+            position: relative;
+            top: 25%;
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .mobile-nav-overlay a {
+            padding: 15px;
+            text-decoration: none;
+            font-size: 2rem;
+            color: var(--white-color);
+            display: block;
+            transition: 0.3s;
+        }
+
+        .mobile-nav-overlay a:hover, .mobile-nav-overlay a:focus {
+            color: var(--primary-color);
+        }
+
+        .mobile-nav-overlay .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 3.5rem;
+        }
+
         /* Hero Section */
         .hero-section {
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
@@ -167,7 +218,7 @@
             transform: translateY(-3px);
         }
         
-        /* About Us, Services, Team, Testimonials Sections */
+        /* General Sections Styling */
         .about-section, .services-section, .team-section, .testimonials-section, .projects-section {
             padding: var(--section-padding);
         }
@@ -182,55 +233,24 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
-
         .gallery-item {
-            position: relative;
-            cursor: pointer;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative; cursor: pointer; overflow: hidden;
+            border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-
         .gallery-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
+            width: 100%; height: 250px; object-fit: cover; display: block;
             transition: transform 0.4s ease;
         }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
+        .gallery-item:hover img { transform: scale(1.1); }
         .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            color: var(--white-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2.5rem;
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5); color: var(--white-color);
+            display: flex; justify-content: center; align-items: center;
+            font-size: 2.5rem; opacity: 0; transition: opacity 0.4s ease;
         }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .video-container {
-            text-align: center;
-        }
-        
-        .video-item {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .video-container { text-align: center; }
+        .video-item { max-width: 800px; margin: 0 auto; }
         
         /* Team Section */
         .team-grid {
@@ -238,39 +258,18 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
-
         .team-member {
-            background: var(--white-color);
-            text-align: center;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: var(--white-color); text-align: center; padding: 20px;
+            border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s, box-shadow 0.3s;
         }
-
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
+        .team-member:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .team-member img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 5px solid var(--primary-color);
+            width: 150px; height: 150px; border-radius: 50%;
+            object-fit: cover; margin-bottom: 20px; border: 5px solid var(--primary-color);
         }
-
-        .team-member h3 {
-            font-size: 1.4rem;
-            margin-bottom: 5px;
-        }
-
-        .team-member p {
-            color: var(--primary-color);
-            font-weight: bold;
-        }
+        .team-member h3 { font-size: 1.4rem; margin-bottom: 5px; }
+        .team-member p { color: var(--primary-color); font-weight: bold; }
 
         /* Testimonials Section */
         .testimonials-grid {
@@ -278,137 +277,76 @@
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
-
         .testimonial-card {
-            background: var(--light-color);
-            padding: 30px;
-            border-radius: 10px;
+            background: var(--light-color); padding: 30px; border-radius: 10px;
             border-left: 5px solid var(--primary-color);
         }
-        
-        .testimonial-card .quote-icon {
-            font-size: 2rem;
-            color: var(--primary-color);
-            opacity: 0.5;
-        }
-
-        .testimonial-card blockquote {
-            font-style: italic;
-            border: none;
-            padding: 0;
-            margin: 15px 0;
-        }
-        
-        .testimonial-card cite {
-            font-weight: bold;
-            color: var(--dark-color);
-        }
+        .testimonial-card .quote-icon { font-size: 2rem; color: var(--primary-color); opacity: 0.5; }
+        .testimonial-card blockquote { font-style: italic; border: none; padding: 0; margin: 15px 0; }
+        .testimonial-card cite { font-weight: bold; color: var(--dark-color); }
 
         /* Modern Contact Section */
-        .contact-section {
-            padding: var(--section-padding);
-        }
-        
-        .contact-info-wrapper {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .contact-info-item {
-            text-align: center;
-            text-decoration: none;
-            color: var(--dark-color);
-        }
-
+        .contact-section { padding: var(--section-padding); }
+        .contact-info-wrapper { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+        .contact-info-item { text-align: center; text-decoration: none; color: var(--dark-color); }
         .contact-info-item .icon {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 80px;
-            height: 80px;
-            background: var(--primary-color);
-            color: var(--white-color);
-            border-radius: 50%;
-            font-size: 2rem;
-            margin: 0 auto 15px auto;
-            transition: background 0.3s, transform 0.3s;
+            display: flex; justify-content: center; align-items: center;
+            width: 80px; height: 80px; background: var(--primary-color);
+            color: var(--white-color); border-radius: 50%; font-size: 2rem;
+            margin: 0 auto 15px auto; transition: background 0.3s, transform 0.3s;
         }
-        
-        .contact-info-item:hover .icon {
-            background: var(--dark-color);
-            transform: scale(1.1);
-        }
-
-        .contact-info-item span {
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
+        .contact-info-item:hover .icon { background: var(--dark-color); transform: scale(1.1); }
+        .contact-info-item span { font-weight: bold; font-size: 1.1rem; }
         
         /* Footer */
-        .footer {
-            background: var(--dark-color);
-            color: #ccc;
-            padding: 40px 0;
-            text-align: center;
-        }
+        .footer { background: var(--dark-color); color: #ccc; padding: 40px 0; text-align: center; }
+        .footer .logo { color: var(--white-color); }
         
-        .footer .logo {
-            color: var(--white-color);
-        }
-        
-        .footer .contact-info-wrapper {
-            margin: 20px 0;
-            gap: 20px;
-        }
-
-        .footer .contact-info-item .icon {
-            width: 50px;
-            height: 50px;
-            font-size: 1.5rem;
-        }
-        .footer .contact-info-item span {
-            display: none;
-        }
-
-
         /* Modal/Popup */
         .modal {
-            display: none;
-            position: fixed; z-index: 2000;
-            left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            justify-content: center; align-items: center;
-            animation: fadeIn 0.3s;
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0;
+            width: 100%; height: 100%; background-color: rgba(0,0,0,0.9);
+            justify-content: center; align-items: center; animation: fadeIn 0.3s;
         }
         .modal.active { display: flex; }
         .modal-content {
-            position: relative; margin: auto; padding: 0;
-            max-width: 85%; max-height: 85%;
+            position: relative; margin: auto; padding: 0; max-width: 85%; max-height: 85%;
             animation: zoomIn 0.3s;
         }
         .modal-content img, .modal-content video {
-            width: auto; height: auto;
-            max-width: 100%; max-height: 85vh;
-            display: none;
+            width: auto; height: auto; max-width: 100%; max-height: 85vh; display: none;
         }
         .close-button {
-            position: absolute; top: 15px; right: 35px;
-            color: #f1f1f1; font-size: 40px; font-weight: bold;
-            cursor: pointer; transition: color 0.3s;
+            position: absolute; top: 15px; right: 35px; color: #f1f1f1;
+            font-size: 40px; font-weight: bold; cursor: pointer; transition: color 0.3s;
         }
         .close-button:hover { color: #bbb; }
         
         /* Responsive */
-        @media(max-width: 768px) {
+        @media(max-width: 992px) {
             .nav-links { display: none; }
+            .hamburger-menu { display: block; }
+        }
+        @media(max-width: 768px) {
             .hero-content h1 { font-size: 2.5rem; }
             h2.section-title { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Mobile Navigation Overlay -->
+    <div id="mobile-nav" class="mobile-nav-overlay">
+        <a href="javascript:void(0)" class="close-btn" id="close-nav-btn">&times;</a>
+        <div class="mobile-nav-content">
+            <a href="#hero">Beranda</a>
+            <a href="#about">Tentang Kami</a>
+            <a href="#projects">Proyek</a>
+            <a href="#team">Tim</a>
+            <a href="profil.html" target="_blank">Profil Perusahaan</a>
+            <a href="#contact">Kontak</a>
+        </div>
+    </div>
 
     <!-- Header -->
     <header class="header">
@@ -419,10 +357,13 @@
                 <li><a href="#about">Tentang Kami</a></li>
                 <li><a href="#projects">Proyek</a></li>
                 <li><a href="#team">Tim</a></li>
-                <!-- TAUTAN BARU DITAMBAHKAN DI SINI -->
-                <li><a href="tentang.html" target="_blank">Tentang Perusahaan</a></li>
+                <li><a href="profil.html" target="_blank">Profil Perusahaan</a></li>
                 <li><a href="#contact">Kontak</a></li>
             </ul>
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger-menu" id="hamburger-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </nav>
     </header>
 
@@ -537,7 +478,9 @@
                         <blockquote>Hasil renovasi kantor kami melebihi ekspektasi. Sangat direkomendasikan untuk proyek komersial.</blockquote>
                         <cite>- Ibu Susan, Manajer PT. Sejahtera</cite>
                     </div>
-                    < yang telah selesai dengan sempurna.</blockquote>
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <blockquote>Proses dari awal hingga akhir sangat transparan. Kami merasa aman mempercayakan pembangunan rumah pertama kami.</blockquote>
                         <cite>- Keluarga Setiawan, Jakarta</cite>
                     </div>
                 </div>
@@ -590,63 +533,80 @@
     
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // --- Logic for Popup/Modal ---
+        // --- Mobile Navigation Logic ---
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+        const closeNavBtn = document.getElementById('close-nav-btn');
+        const mobileNavLinks = document.querySelectorAll('#mobile-nav a');
+
+        function openNav() {
+            mobileNav.style.width = '100%';
+        }
+
+        function closeNav() {
+            mobileNav.style.width = '0%';
+        }
+
+        hamburgerBtn.addEventListener('click', openNav);
+        closeNavBtn.addEventListener('click', closeNav);
+        
+        // Close nav when a link is clicked
+        mobileNavLinks.forEach(link => {
+            // Only add listener to anchor links, not external ones
+            if (link.getAttribute('href').startsWith('#')) {
+                link.addEventListener('click', closeNav);
+            }
+        });
+
+
+        // --- Popup/Modal Logic ---
         const modal = document.getElementById('popup-modal');
         const modalImg = document.getElementById('popup-image');
         const modalVideo = document.getElementById('popup-video');
-        const closeBtn = document.querySelector('.close-button');
+        const modalCloseBtn = document.querySelector('.close-button');
         const galleryItems = document.querySelectorAll('.gallery-item');
 
-        if (!modal || !modalImg || !modalVideo || !closeBtn) {
-            console.error("Modal elements not found!");
-            return;
-        }
+        if (modal && modalImg && modalVideo && modalCloseBtn) {
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const type = item.getAttribute('data-type');
+                    const src = item.getAttribute('data-src');
 
-        galleryItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const type = item.getAttribute('data-type');
-                const src = item.getAttribute('data-src');
+                    if (!type || !src) return;
 
-                if (!type || !src) return;
+                    modal.classList.add('active');
 
-                modal.classList.add('active'); // Show modal
-
-                if (type === 'image') {
-                    modalImg.src = src;
-                    modalImg.style.display = 'block';
-                    modalVideo.style.display = 'none';
-                } else if (type === 'video') {
-                    const videoSource = modalVideo.querySelector('source');
-                    videoSource.src = src;
-                    modalVideo.load();
-                    modalVideo.style.display = 'block';
-                    modalImg.style.display = 'none';
-                    modalVideo.play();
-                }
+                    if (type === 'image') {
+                        modalImg.src = src;
+                        modalImg.style.display = 'block';
+                        modalVideo.style.display = 'none';
+                    } else if (type === 'video') {
+                        const videoSource = modalVideo.querySelector('source');
+                        videoSource.src = src;
+                        modalVideo.load();
+                        modalVideo.style.display = 'block';
+                        modalImg.style.display = 'none';
+                        modalVideo.play();
+                    }
+                });
             });
-        });
 
-        function closeModal() {
-            modal.classList.remove('active');
-            modalImg.src = "";
-            modalVideo.pause();
-            const videoSource = modalVideo.querySelector('source');
-            if(videoSource) videoSource.src = "";
+            function closeModal() {
+                modal.classList.remove('active');
+                modalImg.src = "";
+                modalVideo.pause();
+                const videoSource = modalVideo.querySelector('source');
+                if (videoSource) videoSource.src = "";
+            }
+
+            modalCloseBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+            });
         }
-
-        closeBtn.addEventListener('click', closeModal);
-        
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('active')) {
-                closeModal();
-            }
-        });
     });
     </script>
 </body>
