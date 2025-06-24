@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Perusahaan | KaryaKonstruksi</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* CSS Variables - Consistent with Portfolio */
+        :root {
+            --primary-color: #f39c12; /* Kuning konstruksi */
+            --dark-color: #2c3e50; /* Biru tua */
+            --light-color: #f8f9fa;
+            --white-color: #ffffff;
+            --text-color: #555;
+            --section-padding: 80px 0;
+        }
+
+        /* General Reset & Body */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--white-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        h2.section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+            font-size: 1.1rem;
+        }
+
+        /* Header & Navigation */
+        .header {
+            background: var(--white-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        /* General Section */
+        .section {
+            padding: var(--section-padding);
+        }
+        .bg-light {
+            background-color: var(--light-color);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-153316775-538745373893?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            color: var(--white-color);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-content h1 {
+            color: var(--white-color);
+            font-size: 3.5rem;
+        }
+
+        /* History Section */
+        .history-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .history-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .history-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Advantages Section */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .advantage-card {
+            background: var(--white-color);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            border-bottom: 5px solid var(--primary-color);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .advantage-card .icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        /* Process Section */
+        .process-timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            height: 2px;
+            background: var(--border-color);
+            border-style: dashed;
+        }
+        
+        .process-step {
+            text-align: center;
+            position: relative;
+            background-color: var(--white-color);
+            padding: 0 15px;
+        }
+        
+        .process-step .icon-wrapper {
+            width: 100px;
+            height: 100px;
+            border: 3px solid var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px auto;
+            background: var(--white-color);
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+        
+        /* Clients Section */
+        .clients-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .client-logo {
+            height: 50px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: #ccc;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media(max-width: 992px) {
+            .history-grid { grid-template-columns: 1fr; }
+        }
+        @media(max-width: 768px) {
+            .process-timeline { flex-direction: column; gap: 40px; }
+            .process-timeline::before { display: none; }
+            .hero-content h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="container">
+            <a href="#" class="logo">Karya<span>Konstruksi</span></a>
+            <!-- Tambahkan link navigasi jika diperlukan, misal kembali ke halaman portofolio -->
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Fondasi Kuat, Masa Depan Cerah</h1>
+                <p class="section-subtitle" style="color: white; margin-top: 20px;">Mengenal lebih dekat komitmen, nilai, dan keunggulan yang menjadikan kami partner konstruksi terpercaya Anda.</p>
+            </div>
+        </section>
+        
+        <!-- History & Philosophy Section -->
+        <section class="section">
+            <div class="container">
+                <div class="history-grid">
+                    <div class="history-text">
+                        <h3>Sejarah & Filosofi Kami</h3>
+                        <p>Berawal dari sebuah visi sederhana pada tahun 2010 untuk membangun dengan integritas, KaryaKonstruksi telah tumbuh menjadi nama yang disegani di industri konstruksi. Kami percaya bahwa setiap bangunan bukan hanya struktur fisik, tetapi juga merupakan wujud dari mimpi dan kerja keras.</p>
+                        <p style="margin-top: 15px;">Filosofi kami berpusat pada tiga pilar utama: <strong>Kualitas</strong> tanpa kompromi, <strong>Kepercayaan</strong> klien, dan <strong>Inovasi</strong> berkelanjutan. Kami berkomitmen untuk menerapkan standar tertinggi dalam setiap detail pekerjaan, mulai dari pemilihan material hingga penyelesaian akhir.</p>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1520182200389-1a70a31a5477?q=80&w=2070&auto=format&fit=crop" alt="Tim konstruksi sedang berdiskusi" class="history-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Advantages Section -->
+        <section class="section bg-light">
+             <div class="container">
+                <h2 class="section-title">Keunggulan Kami</h2>
+                <p class="section-subtitle">Alasan mengapa kami menjadi pilihan utama untuk proyek Anda.</p>
+                <div class="advantages-grid">
+                    <div class="advantage-card">
+                        <div class="icon"><i class="fas fa-award"></i></div>
+                        <h4>Kualitas Terjamin</h4>
+                        <p>Kami hanya menggunakan material terbaik dan tenaga kerja ahli untuk memastikan hasil yang tahan lama dan memuaskan.</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="icon"><i class="fas fa-clock"></i></div>
+                        <h4>Penyelesaian Tepat Waktu</h4>
+                        <p>Dengan manajemen proyek yang efisien, kami menjamin penyelesaian proyek sesuai dengan jadwal yang telah disepakati.</p>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                        <h4>Keamanan & K3 Utama</h4>
+                        <p>Kami menerapkan standar Keselamatan dan Kesehatan Kerja (K3) yang ketat di setiap lokasi proyek untuk melindungi semua pihak.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Our Process Section -->
+        <section class="section">
+             <div class="container">
+                <h2 class="section-title">Proses Kerja Kami</h2>
+                <p class="section-subtitle">Kami menyediakan alur kerja yang transparan dan terstruktur untuk kenyamanan Anda.</p>
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <div class="icon-wrapper"><i class="fas fa-comments"></i></div>
+                        <h4>1. Konsultasi</h4>
+                        <p>Memahami visi, kebutuhan, dan anggaran Anda.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="icon-wrapper"><i class="fas fa-drafting-compass"></i></div>
+                        <h4>2. Perencanaan & Desain</h4>
+                        <p>Membuat rancangan detail dan jadwal kerja.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="icon-wrapper"><i class="fas fa-hard-hat"></i></div>
+                        <h4>3. Eksekusi</h4>
+                        <p>Proses pembangunan dengan pengawasan ketat.</p>
+                    </div>
+                     <div class="process-step">
+                        <div class="icon-wrapper"><i class="fas fa-key"></i></div>
+                        <h4>4. Serah Terima</h4>
+                        <p>Penyerahan proyek yang telah selesai dengan sempurna.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clients Section -->
+        <section class="section bg-light">
+            <div class="container">
+                <h2 class="section-title">Klien & Mitra Kami</h2>
+                <p class="section-subtitle">Kami bangga telah mendapatkan kepercayaan dari berbagai perusahaan ternama.</p>
+                <div class="clients-grid">
+                    <img src="https://placehold.co/150x50/FFFFFF/31343C?text=MITRA+A" alt="Logo Mitra 1" class="client-logo">
+                    <img src="https://placehold.co/150x50/FFFFFF/31343C?text=KLIEN+B" alt="Logo Klien 2" class="client-logo">
+                    <img src="https://placehold.co/150x50/FFFFFF/31343C?text=MITRA+C" alt="Logo Mitra 3" class="client-logo">
+                    <img src="https://placehold.co/150x50/FFFFFF/31343C?text=KLIEN+D" alt="Logo Klien 4" class="client-logo">
+                    <img src="https://placehold.co/150x50/FFFFFF/31343C?text=MITRA+E" alt="Logo Mitra 5" class="client-logo">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <a href="#" class="logo">Karya<span>Konstruksi</span></a>
+            <p style="margin: 15px 0;">Fondasi Kuat, Masa Depan Cerah.</p>
+            <p>&copy; 2025 KaryaKonstruksi. Seluruh Hak Cipta.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+

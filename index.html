@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Perusahaan Konstruksi | KaryaKonstruksi</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #f39c12; /* Warna khas konstruksi (kuning) */
+            --dark-color: #2c3e50; /* Biru tua untuk teks */
+            --light-color: #f8f9fa;
+            --white-color: #ffffff;
+            --text-color: #555;
+            --section-padding: 80px 0;
+        }
+
+        /* General Reset & Body */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--white-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        h2.section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+            font-size: 1.1rem;
+        }
+
+        /* Header & Navigation */
+        .header {
+            background: var(--white-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            color: var(--white-color);
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: var(--white-color);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background: #e67e22;
+            transform: translateY(-3px);
+        }
+        
+        /* About Us, Services, Team, Testimonials Sections */
+        .about-section, .services-section, .team-section, .testimonials-section, .projects-section {
+            padding: var(--section-padding);
+        }
+        
+        .services-section, .team-section, .contact-section {
+            background-color: var(--light-color);
+        }
+
+        /* Photo & Video Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            color: var(--white-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .video-container {
+            text-align: center;
+        }
+        
+        .video-item {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background: var(--white-color);
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid var(--primary-color);
+        }
+
+        .team-member h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .team-member p {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .testimonial-card .quote-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            opacity: 0.5;
+        }
+
+        .testimonial-card blockquote {
+            font-style: italic;
+            border: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        
+        .testimonial-card cite {
+            font-weight: bold;
+            color: var(--dark-color);
+        }
+
+        /* Modern Contact Section */
+        .contact-section {
+            padding: var(--section-padding);
+        }
+        
+        .contact-info-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info-item {
+            text-align: center;
+            text-decoration: none;
+            color: var(--dark-color);
+        }
+
+        .contact-info-item .icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80px;
+            height: 80px;
+            background: var(--primary-color);
+            color: var(--white-color);
+            border-radius: 50%;
+            font-size: 2rem;
+            margin: 0 auto 15px auto;
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        .contact-info-item:hover .icon {
+            background: var(--dark-color);
+            transform: scale(1.1);
+        }
+
+        .contact-info-item span {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: #ccc;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer .logo {
+            color: var(--white-color);
+        }
+        
+        .footer .contact-info-wrapper {
+            margin: 20px 0;
+            gap: 20px;
+        }
+
+        .footer .contact-info-item .icon {
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+        }
+        .footer .contact-info-item span {
+            display: none;
+        }
+
+
+        /* Modal/Popup */
+        .modal {
+            display: none;
+            position: fixed; z-index: 2000;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center; align-items: center;
+            animation: fadeIn 0.3s;
+        }
+        .modal.active { display: flex; }
+        .modal-content {
+            position: relative; margin: auto; padding: 0;
+            max-width: 85%; max-height: 85%;
+            animation: zoomIn 0.3s;
+        }
+        .modal-content img, .modal-content video {
+            width: auto; height: auto;
+            max-width: 100%; max-height: 85vh;
+            display: none;
+        }
+        .close-button {
+            position: absolute; top: 15px; right: 35px;
+            color: #f1f1f1; font-size: 40px; font-weight: bold;
+            cursor: pointer; transition: color 0.3s;
+        }
+        .close-button:hover { color: #bbb; }
+        
+        /* Responsive */
+        @media(max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 2.5rem; }
+            h2.section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="container">
+            <a href="#" class="logo">Karya<span>Konstruksi</span></a>
+            <ul class="nav-links">
+                <li><a href="#hero">Beranda</a></li>
+                <li><a href="#about">Tentang Kami</a></li>
+                <li><a href="#projects">Proyek</a></li>
+                <li><a href="#team">Tim</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1>Membangun Masa Depan, Satu Proyek Sekaligus</h1>
+                <p>Kontraktor terpercaya dengan komitmen pada kualitas, keamanan, dan ketepatan waktu.</p>
+                <a href="#contact" class="cta-button">Hubungi Kami</a>
+            </div>
+        </section>
+        
+        <!-- About Us Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">Tentang Kami</h2>
+                <p class="section-subtitle">
+                    KaryaKonstruksi berdiri sejak tahun 2010, didorong oleh semangat untuk memberikan hasil konstruksi terbaik di Indonesia. Kami menggabungkan keahlian teknik, material berkualitas, dan manajemen proyek yang efisien untuk mewujudkan bangunan impian klien kami, dari skala kecil hingga proyek komersial besar.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+             <div class="container">
+                <h2 class="section-title">Layanan Kami</h2>
+                <div class="testimonials-grid"> <!-- Re-using testimonial style for cards -->
+                    <div class="testimonial-card"><h3>Konstruksi Bangunan</h3><p>Membangun rumah tinggal, gedung komersial, dan fasilitas industri dengan standar kualitas tertinggi.</p></div>
+                    <div class="testimonial-card"><h3>Renovasi & Interior</h3><p>Mengubah dan memperbarui ruang lama menjadi lingkungan yang fungsional dan lebih estetis.</p></div>
+                    <div class="testimonial-card"><h3>Manajemen Proyek</h3><p>Mengelola setiap tahap proyek, dari perencanaan hingga serah terima, dengan efisien dan transparan.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <!-- Photo Gallery -->
+                <h2 class="section-title">Galeri Foto Proyek</h2>
+                <p class="section-subtitle">Visual dari beberapa proyek yang telah kami kerjakan.</p>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-type="image" data-src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=2070&auto=format&fit=crop">
+                        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=2070&auto=format&fit=crop" alt="Proyek Perumahan Modern">
+                        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="gallery-item" data-type="image" data-src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=2070&auto=format&fit=crop">
+                        <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=2070&auto=format&fit=crop" alt="Desain Arsitektur Unik">
+                        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                    <div class="gallery-item" data-type="image" data-src="https://images.unsplash.com/photo-1511303893361-cf8a82a3d750?q=80&w=2070&auto=format&fit=crop">
+                        <img src="https://images.unsplash.com/photo-1511303893361-cf8a82a3d750?q=80&w=2070&auto=format&fit=crop" alt="Pembangunan Gedung Komersial">
+                        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                    </div>
+                </div>
+                
+                <!-- Video Gallery -->
+                <h2 class="section-title" style="margin-top: 80px;">Galeri Video</h2>
+                <p class="section-subtitle">Lihat proses kerja kami dalam format video.</p>
+                <div class="video-container">
+                    <div class="gallery-item video-item" data-type="video" data-src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4">
+                        <img src="https://images.unsplash.com/photo-1429497419816-9ca5cfb4571a?q=80&w=2070&auto=format&fit=crop" alt="Video Proyek Drone">
+                        <div class="gallery-overlay"><i class="fas fa-play"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Team Section -->
+        <section id="team" class="team-section">
+            <div class="container">
+                <h2 class="section-title">Tim Profesional Kami</h2>
+                <p class="section-subtitle">Kami didukung oleh para ahli di bidangnya masing-masing untuk menjamin kualitas terbaik.</p>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://placehold.co/150x150/EFEFEF/31343C?text=Foto" alt="Foto Arsitek">
+                        <h3>Andi Wijaya</h3>
+                        <p>Arsitek Utama</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://placehold.co/150x150/EFEFEF/31343C?text=Foto" alt="Foto Manajer Proyek">
+                        <h3>Budi Santoso</h3>
+                        <p>Manajer Proyek</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://placehold.co/150x150/EFEFEF/31343C?text=Foto" alt="Foto Insinyur Sipil">
+                        <h3>Citra Lestari</h3>
+                        <p>Insinyur Sipil</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://placehold.co/150x150/EFEFEF/31343C?text=Foto" alt="Foto Desainer Interior">
+                        <h3>Dewi Anggraini</h3>
+                        <p>Desainer Interior</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials-section">
+            <div class="container">
+                <h2 class="section-title">Testimoni Klien</h2>
+                <p class="section-subtitle">Apa kata mereka yang telah menggunakan jasa kami.</p>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <blockquote>Pengerjaan sangat rapi dan selesai tepat waktu. Tim KaryaKonstruksi sangat profesional dan komunikatif.</blockquote>
+                        <cite>- Bapak Hartono, Pemilik Villa di Bali</cite>
+                    </div>
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <blockquote>Hasil renovasi kantor kami melebihi ekspektasi. Sangat direkomendasikan untuk proyek komersial.</blockquote>
+                        <cite>- Ibu Susan, Manajer PT. Sejahtera</cite>
+                    </div>
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <blockquote>Proses dari awal hingga akhir sangat transparan. Kami merasa aman mempercayakan pembangunan rumah pertama kami.</blockquote>
+                        <cite>- Keluarga Setiawan, Jakarta</cite>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modern Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Hubungi Kami</h2>
+                <p class="section-subtitle">Mari diskusikan proyek Anda. Hubungi kami melalui salah satu platform di bawah ini.</p>
+                <div class="contact-info-wrapper">
+                    <a href="tel:+6281234567890" class="contact-info-item">
+                        <div class="icon"><i class="fas fa-phone"></i></div>
+                        <span>Telepon</span>
+                    </a>
+                    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20jasa%20konstruksi%20Anda." target="_blank" class="contact-info-item">
+                        <div class="icon"><i class="fab fa-whatsapp"></i></div>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="mailto:kontak@karyakonstruksi.com" class="contact-info-item">
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <span>Email</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <a href="#" class="logo">Karya<span>Konstruksi</span></a>
+            <p style="margin: 15px 0;">Membangun Impian Anda Sejak 2010</p>
+            <p>&copy; 2025 KaryaKonstruksi. Seluruh Hak Cipta.</p>
+        </div>
+    </footer>
+
+    <!-- Popup/Modal for Gallery -->
+    <div id="popup-modal" class="modal">
+        <span class="close-button">&times;</span>
+        <div class="modal-content">
+            <img id="popup-image" src="" alt="Popup Gambar">
+            <video id="popup-video" controls>
+                <source src="" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- Logic for Popup/Modal ---
+        const modal = document.getElementById('popup-modal');
+        const modalImg = document.getElementById('popup-image');
+        const modalVideo = document.getElementById('popup-video');
+        const closeBtn = document.querySelector('.close-button');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        if (!modal || !modalImg || !modalVideo || !closeBtn) {
+            console.error("Modal elements not found!");
+            return;
+        }
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const type = item.getAttribute('data-type');
+                const src = item.getAttribute('data-src');
+
+                if (!type || !src) return;
+
+                modal.classList.add('active'); // Show modal
+
+                if (type === 'image') {
+                    modalImg.src = src;
+                    modalImg.style.display = 'block';
+                    modalVideo.style.display = 'none';
+                } else if (type === 'video') {
+                    const videoSource = modalVideo.querySelector('source');
+                    videoSource.src = src;
+                    modalVideo.load();
+                    modalVideo.style.display = 'block';
+                    modalImg.style.display = 'none';
+                    modalVideo.play();
+                }
+            });
+        });
+
+        function closeModal() {
+            modal.classList.remove('active');
+            modalImg.src = "";
+            modalVideo.pause();
+            const videoSource = modalVideo.querySelector('source');
+            if(videoSource) videoSource.src = "";
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    });
+    </script>
+</body>
+</html>
+
